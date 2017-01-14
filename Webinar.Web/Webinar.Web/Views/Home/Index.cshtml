@@ -1,0 +1,339 @@
+﻿@model Webinar.DAL.Model.UserVM
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+    <title>::: WELCOME TO :: Pi Schologist :::</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css" type="text/css">
+
+    <!-- Custom Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,400italic,300italic,300,100italic,100,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="~/Content/font-awesome/css/font-awesome.min.css" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="~/Content/css/animate.min.css" type="text/css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/Content/css/Style.css" type="text/css">
+    <link rel="stylesheet" href="~/Content/css/hover.css" type="text/css">
+    <link rel="stylesheet" href="~/Content/css/full-slider.css" type="text/css">
+
+    @Scripts.Render("~/bundles/angular")
+
+</head>
+
+<body id="page-top">
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top small center wow fadeInDown top__element animated" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;">
+        <div class="container-fluid">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                    <a class=" logo_resize page-scroll" href="/Home/Index">
+                        <img src="../Images/centsible_logo.png" alt="centsible_logo" class="header_logo"></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                @*<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#page-top" class="page-scroll hvr-sweep-to-top">Home</a> </li>
+                        <li><a href="#about" class="page-scroll hvr-sweep-to-top">About Us</a> </li>
+                        <li><a href="#rates" class="page-scroll hvr-sweep-to-top">Our Rates</a> </li>
+                        <li><a href="#howuse" class="page-scroll hvr-sweep-to-top">How to Use</a> </li>
+                        <li><a href="#help" class="page-scroll hvr-sweep-to-top">Help</a> </li>
+                        <li><a href="#contact" class="page-scroll hvr-sweep-to-top">Contact Us</a> </li>
+                    </ul>
+                </div>*@
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+    <header id="myCarousel" class="carousel slide">
+        <!-- Wrapper for Slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <!-- Set the first background image using inline CSS below. -->
+                <div class="fill" style="background-image: url('../Images/banner_img.png');"></div>
+                <div class="carousel-caption"></div>
+            </div>
+            <div class="item">
+                <!-- Set the second background image using inline CSS below. -->
+                <div class="fill" style="background-image: url('../Images/banner_img4.png');"></div>
+                <div class="carousel-caption"></div>
+            </div>
+            <div class="item">
+                <!-- Set the third background image using inline CSS below. -->
+                <div class="fill" style="background-image: url('../Images/banner_img2.png');"></div>
+                <div class="carousel-caption"></div>
+            </div>
+            <div class="item">
+                <!-- Set the third background image using inline CSS below. -->
+                <div class="fill" style="background-image: url('../Images/banner_img3.png');"></div>
+                <div class="carousel-caption"></div>
+            </div>
+        </div>
+        <div class="header-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5 col-sm-7">
+                        <div class="form">
+                            <div class="login_box wow bounceIn" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s;">
+                                <ul class="tab-group">
+                                    <li class="tab active"><a href="#signup">Log In</a></li>
+                                    <li class="tab"><a href="#">Sign Up</a>@*</li><a href="#login">*@
+                                </ul>
+                                <div class="tab-content">
+                                    <div id="signup">
+                                        @*   <form>*@
+                                        @using (Html.BeginForm("LoginPost", "Home"))
+                                        {
+                                            <h1>Login
+                      <div class="heading_img">
+                          <div class="heading_line left"></div>
+                          <img alt="login_heading" src="../Images/login_heading.png">
+                          <div class="heading_line"></div>
+                      </div>
+                                            </h1>   
+                                            <div class="field-wrap">
+                                                <label>Username<span class="req">*</span> </label>
+                                                <input type="text" name="email" required autocomplete="off" />
+                                                <i class="icon-append fa fa-phone"></i>
+                                                @* @Html.TextBox("PhoneNumber") <i class="icon-append fa fa-phone"></i>
+                                                @Html.ValidationMessage("PhoneNumber", new { @class = "error" })*@
+
+                                            </div>
+                                            <div class="field-wrap">
+                                                <label>Password<span class="req">*</span> </label>
+                                                <input type="Password" name="Password" required autocomplete="off" />
+                                                @*  @Html.TextBox("Password")
+                                                @Html.ValidationMessage("Password", new { @class = "error" })*@
+                                                <i class="icon-append fa fa-lock"></i>
+                                                @*<a data-toggle="modal" href="#forget_password" class="password_help">
+                                                    <div class="tooltips"><i class="fa fa-question-circle"></i><span>Forgot Password</span></div>
+                                                </a>*@
+                                            </div>@*
+                                            <input type="submit" class="button button-block yellow_btn" value="Go">*@
+
+                                            <button type="submit" class="button button-block yellow_btn">
+                                                <img src="../Images/login_img.png" alt="login_img" class="login_icon">Go</button>
+                                        }
+
+                                        @Html.ValidationMessage("ErrorMsg", new { @class = "error" })
+
+                                    </div>
+                                    <div id="login">
+                                        <form action="/" method="post">
+                                            <h1>Sign Up
+                      <div class="heading_img">
+                          <div class="heading_line left"></div>
+                          <img alt="login_heading" src="../Images/login_heading.png">
+                          <div class="heading_line"></div>
+                      </div>
+                                            </h1>
+                                            <div class="field-wrap">
+                                                <label>Email<span class="req">*</span> </label>
+                                                <input id="txtEmail" type="email" required autocomplete="off" />
+                                                <i class="icon-append fa fa-phone"></i>
+                                            </div>
+                                            <button class="button button-block yellow_btn" id="btnGoSignup">
+                                                <img src="../Images/login_img.png" alt="login_img" class="login_icon">Go</button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- tab-content -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="footer-copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="footer-links"><a href="#">Terms & Condition</a> | <a href="#">Privacy Policy</a> | <a href="#">Disclaimer </a></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="footer-copu">Copyright <i class="fa fa-copyright"></i>2015 All Rights Reserved</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="modal fade" id="forget_password" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog forget_modal">
+            <div class="modal-content">
+                <!-- <div class="modal-header">
+      </div>-->
+                <div class="header-account">
+                    <h4>Forgot Password</h4>
+                    <span>Please enter your phone number below</span>
+                </div>
+                <button type="button" class="close pop_up_close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <div class="modal-body">
+                    <div class="inner_pages_box">
+                        <form>
+                            <div class="form">
+                                <div class="field-wrap">
+                                    <label>Phone Number<span class="req">*</span> </label>
+                                    <input type="phone" required autocomplete="off" />
+                                    <i class="icon-append fa fa-phone"></i>
+                                </div>
+                            </div>
+                            <button class="button button-block yellow_btn">
+                                <img src="../Images/login_img.png" alt="login_img" class="login_icon">Go</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <!--<div class="modal-footer">
+      </div>-->
+        </div>
+    </div>
+
+    <div class="modal fade" id="signup_popup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog signup_modal">
+            @Html.Partial("_signUp", Model);           
+        </div>
+    </div>
+
+
+    <!-- jQuery -->
+    <script src="~/Scripts/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Scripts/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="~/Scripts/js/jquery.easing.min.js"></script>
+    <script src="~/Scripts/js/jquery.fittext.js"></script>
+    <script src="~/Scripts/js/wow.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="~/Scripts/js/creative.js"></script>
+
+
+    <script>
+
+        $(document).ready(function () {
+            $("a").tooltip();
+        });
+
+        $('.carousel').carousel({
+            interval: 5000 //changes the speed
+        })
+    </script>
+
+    @Scripts.Render("~/bundles/Accounts")
+    <script type="text/javascript">
+
+        $('.form').find('input, textarea').on('keyup blur focus', function (e) {
+
+            var $this = $(this),
+                label = $this.prev('label');
+
+            if (e.type === 'keyup') {
+                if ($this.val() === '') {
+                    label.removeClass('active highlight');
+                } else {
+                    label.addClass('active highlight');
+                }
+            } else if (e.type === 'blur') {
+                if ($this.val() === '') {
+                    label.removeClass('active highlight');
+                } else {
+                    label.removeClass('highlight');
+                }
+            } else if (e.type === 'focus') {
+
+                if ($this.val() === '') {
+                    label.removeClass('highlight');
+                }
+                else if ($this.val() !== '') {
+                    label.addClass('highlight');
+                }
+            }
+
+        });
+
+        $('.tab a').on('click', function (e) {
+
+            e.preventDefault();
+            $(this).parent().addClass('active');
+            $(this).parent().siblings().removeClass('active');
+            target = $(this).attr('href');
+
+            $('.tab-content > div').not(target).hide();
+
+            $(target).fadeIn(600);
+
+        });
+
+        $('#btnGoSignup').click(function (e) {
+
+            if ($('#txtEmail').val() == "") {
+                alert('Please Enter Email');
+                return false;
+            }
+            else if (!validateUEmail($('#txtEmail').val())) {
+                alert('Please enter valid email ');
+                return false;
+            }
+            else {
+                
+                $("#email").val($('#txtEmail').val());
+                e.preventDefault();
+                $('#signup_popup').modal('show');
+            }
+        });
+
+        function IsNumeric(sText) {
+            var ValidChars = "0123456789";
+            var IsNumber = true;
+            var Char;
+
+            for (i = 0; i < sText.length && IsNumber == true; i++) {
+                Char = sText.charAt(i);
+                if (ValidChars.indexOf(Char) == -1) {
+                    IsNumber = false;
+                }
+            }
+            return IsNumber;
+        }
+
+        function validateUEmail(Uemail) {
+            email_regex = /^[a-zA-Z0-9\.\_]+\@@{1}[a-zA-Z0-9]+\.\w{2,4}$/;
+            if (!email_regex.test(Uemail)) {
+                $("#EmailError").text("Please enter valid email address");
+                return false;
+            } else { return true; }
+        }
+
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,932 @@
+﻿@model Webinar.DAL.Model.UserVM
+
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+
+
+<div class="modal-content">
+    <div class="header-account">
+        <h4>Sign Up</h4>
+        <span>Please enter your information</span>
+    </div>
+    <button type="button" class="close pop_up_close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+    <div class="modal-body">
+
+        <form id="signupform" name="signupform" method="post" action="/Home/SignUp">
+
+            <div class="tabbable signup_modal_tab" id="tabs-149040">
+
+                <div class="row">
+
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a data-toggle="tab" href="#basic" data-original-title="" title="" aria-expanded="true">
+                                <div class="steps">1</div>
+                                <span>
+                                    <h1>Basic</h1>
+                                    Basic Information </span></a>
+                        </li>
+                        <li class="">
+                            <a aria-expanded="false" data-toggle="tab" href="#billing" data-original-title="" title="">
+                                <div class="steps">2</div>
+                                <span>
+                                    <h1>Billing</h1>
+                                    Billing Information </span></a>
+                        </li>
+                        <li class="">
+                            <a aria-expanded="false" data-toggle="tab" href="#payment" data-original-title="" title="">
+                                <div class="steps">3</div>
+                                <span>
+                                    <h1>Preview</h1>
+                                    Profile Preview </span></a>
+                        </li>
+                    </ul>
+
+                </div>
+
+                @*<label class="almsg" id="CardErrorMsg" style="color: red"></label>*@
+                <div id="CardErrorMsg" class="alert alert-danger alert-dismissible fade in" role="alert" style="display: none">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="basic">
+                        <div class="form">
+
+                            <div class="inner_pages_box">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h4 class="sign_up_heading"><i class="sign_up_headding fa fa-user"></i>Basic Information</h4>
+                                        <hr>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="field-wrap">
+                                            @* <label>Email<span class="req">*</span></label>*@
+                                            @Html.HiddenFor(m => m.userid)
+                                            @*<input id="txtCustPhoneNumber" type="phone" autocomplete="off" />*@
+                                            <input type="hidden" id="cardType" value="" />
+                                            @Html.TextBoxFor(m => m.email, new { @maxlength = "50", @autocomplete = "off" })
+                                            <span class="sign-er-msg" style="color: red" id="EmailError"></span>
+                                            <i class="icon-append fa fa-envelope"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="field-wrap">
+                                            <label>Phone Number <span class="req">*</span></label>
+                                            @Html.TextBoxFor(m => m.phone, new { @maxlength = "10", @autocomplete = "off" })
+                                            <i class="icon-append fa fa-key"></i>
+                                            <span class="ermsg card_error" style="color: red;" id="phoneError"></span>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="field-wrap">
+                                            <label>Password<span class="req">*</span></label>
+                                            @Html.PasswordFor(m => m.password, new { @maxlength = "15", @autocomplete = "off" })
+                                            <i class="icon-append fa fa-key"></i>
+                                            <span class="ermsg card_error" style="color: red;" id="vldPassword"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="field-wrap">
+                                            <label>Re-enter Password <span class="req">*</span></label>
+                                            @Html.PasswordFor(m => m.confirmpassword, new { @maxlength = "15", @autocomplete = "off" })
+                                            <span class="ermsg card_error" style="color: red;" id="PasswordError"></span>
+                                            <i class="icon-append fa fa-key"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="model_footer_buttons">
+                                        <div class="col-md-8"></div>
+                                        <div class="col-md-4">
+                                            <button id="btnBasicNext" class="button button-block yellow_btn field-wrap submit_btn_main" onclick="window.location.href='#billing'">Next</button>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    @*@if (@Model != null)
+                    {
+                        *@
+                    <div class="tab-pane" id="billing">
+                        <div class="form">
+                            <div class="inner_pages_box">
+                                <div class="row">
+                                    <div class="row">
+
+                                        <div class="col-md-12">
+                                            <div class="col-md-12">
+                                                <h4 class="sign_up_heading"><i class="sign_up_headding fa fa-user"></i>Billing Information</h4>
+                                                <hr>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="field-wrap">
+                                                            <label>First Name on Card<span class="req">*</span></label>
+                                                            @Html.TextBoxFor(m => m.firstname, new { @maxlength = "30", @autocomplete = "off" })
+                                                            <i class="icon-append fa fa-user"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="field-wrap">
+                                                            <label>Last Name on Card<span class="req">*</span></label>
+                                                            @Html.TextBoxFor(m => m.lastname, new { @maxlength = "30", @autocomplete = "off" })
+                                                            <i class="icon-append fa fa-user"></i>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="field-wrap">
+                                                            <label>City<span class="req">*</span> </label>
+                                                            @Html.TextBoxFor(m => m.city, new { @maxlength = "50", @autocomplete = "off" })
+                                                            <i class="icon-append fa fa-location-arrow"></i>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="col-md-6">
+                                                        <div class="field-wrap sky-form">
+                                                            <label class="select">
+                                                                @*  @Html.DropDownListFor(m => m.state, Model.Statelist, "State")*@
+                                                                @Html.DropDownListFor(m => m.state, new List<SelectListItem>{
+                                                                            new SelectListItem { Text = "Punjab", Value = "1" }, 
+                                                                            new SelectListItem { Text = "Himachal Pradesh", Value = "2" },
+                                                                            new SelectListItem { Text = "Hariyana", Value = "3" },
+                                                                            new SelectListItem { Text = "Rajesthan", Value = "4" },
+                                                                            new SelectListItem { Text = "Uttar Pradesh", Value = "5" },
+                                                                            new SelectListItem { Text = "Madhya Pradesh", Value = "6" },
+                                                                            new SelectListItem { Text = "Maharashtra", Value = "7" },
+                                                                            new SelectListItem { Text = "Vihar", Value = "8" },
+                                                                            new SelectListItem { Text = "Chattisgarh", Value = "9" },
+                                                                            new SelectListItem { Text = "Jammu&Kashmir", Value = "10" }                                                                                  
+                                                                   }, "State")
+
+                                                                <i></i>
+                                                            </label>
+                                                            <i class="icon-append fa fa-location-arrow"></i>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row">
+
+                                                    <div class="col-md-6">
+                                                        <div class="field-wrap sky-form">
+                                                            <label class="select">
+                                                                @*@Html.DropDownListFor(m => m.cid, Model.Countrylist, "Country")*@
+
+                                                                @Html.DropDownListFor(m => m.country, new List<SelectListItem>{
+                                                                            new SelectListItem { Text = "India", Value = "1" }, 
+                                                                            new SelectListItem { Text = "Australia", Value = "2" },
+                                                                            new SelectListItem { Text = "USA", Value = "3" },
+                                                                            new SelectListItem { Text = "UK", Value = "4" },
+                                                                            new SelectListItem { Text = "Brazil", Value = "5" },
+                                                                            new SelectListItem { Text = "Rusia", Value = "6" },
+                                                                            new SelectListItem { Text = "South Africa", Value = "7" },
+                                                                            new SelectListItem { Text = "Bangladesh", Value = "8" },
+                                                                            new SelectListItem { Text = "China", Value = "9" },
+                                                                            new SelectListItem { Text = "New Zeland", Value = "10" }                                                                                  
+                                                                   }, "Country")
+
+
+                                                                <i></i>
+                                                            </label>
+                                                            <i class="icon-append fa fa-location-arrow"></i>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="field-wrap">
+                                                            <label>Zip Code<span class="req">*</span></label>
+                                                            @Html.TextBoxFor(m => m.zip, new { @maxlength = "10", @autocomplete = "off" })
+                                                            <i class="icon-append fa fa-map-marker"></i>
+                                                            <span class="ermsg card_error" id="zipcodeError" style="color: red"></span>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="field-wrap textarea_box">
+                                                    <label>Billing Address<span class="req">*</span></label>
+                                                    @Html.TextAreaFor(m => m.billingInfo, new { @maxlength = "50", @autocomplete = "off" })
+                                                    <i class="icon-append fa fa-compass"></i>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="clearfix"></div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="col-md-4">
+
+                                                        <div class="field-wrap">
+                                                            <label>Card Number<span class="req">*</span></label>
+                                                            @Html.TextBoxFor(m => m.cardNumber, new { @maxlength = "25", @autocomplete = "off" })
+                                                            <span class="ermsg card_error" style="color: red; display: none" id="ccardErrorlbl"></span>
+                                                            <i class="icon-append fa fa-cc-visa" style="font-size: 16px;"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="field-wrap sky-form">
+                                                                    <label class="select">
+
+                                                                        @Html.DropDownListFor(m => m.month, new List<SelectListItem>{
+                                                                            new SelectListItem { Text = "Jan", Value = "1" }, 
+                                                                            new SelectListItem { Text = "Feb", Value = "2" },
+                                                                            new SelectListItem { Text = "Mar", Value = "3" },
+                                                                            new SelectListItem { Text = "Apr", Value = "4" },
+                                                                            new SelectListItem { Text = "May", Value = "5" },
+                                                                            new SelectListItem { Text = "June", Value = "6" },
+                                                                            new SelectListItem { Text = "July", Value = "7" },
+                                                                            new SelectListItem { Text = "Aug", Value = "8" },
+                                                                            new SelectListItem { Text = "Sep", Value = "9" },
+                                                                            new SelectListItem { Text = "Oct", Value = "10" },                                              
+                                                                            new SelectListItem { Text = "Nov", Value = "11" },                                             
+                                                                            new SelectListItem { Text = "Dec", Value = "12" }                                             
+                                                                   }, "Month")
+
+
+                                                                        <i></i>
+                                                                    </label>
+                                                                    <i style="font-size: 16px;" class="icon-append fa fa-cc-visa"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="field-wrap sky-form">
+                                                                    <label class="select">
+
+                                                                        @Html.DropDownListFor(m => m.year, new List<SelectListItem>{
+                                                                            new SelectListItem { Text = "2016", Value = "2016" },
+                                                                            new SelectListItem { Text = "2017", Value = "2017" },
+                                                                            new SelectListItem { Text = "2018", Value = "2018" },
+                                                                            new SelectListItem { Text = "2019", Value = "2019" },
+                                                                            new SelectListItem { Text = "2020", Value = "2020" },
+                                                                            new SelectListItem { Text = "2021", Value = "2021"},
+                                                                            new SelectListItem { Text = "2022", Value = "2022"},
+                                                                            new SelectListItem { Text = "2023", Value = "2023" },
+                                                                            new SelectListItem { Text = "2024", Value = "2024"},
+                                                                            new SelectListItem { Text = "2025", Value = "2025"},
+                                                                            new SelectListItem { Text = "2026", Value = "2026"},
+                                                                            new SelectListItem { Text = "2027", Value = "2027" },
+                                                                            new SelectListItem { Text = "2028", Value = "2028"},
+                                                                            new SelectListItem { Text = "2029", Value = "2029"},
+                                                                            new SelectListItem { Text = "2030", Value = "2030"}
+                                                                 
+                                                                   }, "Year")
+
+                                                                        <i></i>
+                                                                    </label>
+                                                                    <label id="CardExp" style="color: red"></label>
+                                                                    <i style="font-size: 16px;" class="icon-append fa fa-cc-visa"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-4">
+
+                                                        <div class="field-wrap">
+                                                            <label>Card Verification Code<span class="req">*</span></label>
+                                                            @Html.TextBoxFor(m => m.cardVerificationcode, new { @autocomplete = "off", @maxlength = "4" })
+
+                                                            <span class="ermsg card_error" id="cardVerificationError" style="color: red"></span>
+                                                            <i style="font-size: 16px;" class="icon-append fa fa-cc-visa"></i>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+
+                                                <div class="field-wrap">
+                                                    <label>Bank Name<span class="req">*</span></label>
+                                                    @Html.TextBoxFor(m => m.bankname, new { @maxlength = "50", @autocomplete = "off" })
+                                                    <i style="font-size: 16px;" class="icon-append fa fa-cc-visa"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+
+                                                <div class="field-wrap sky-form">
+                                                    <label class="select">
+                                                        @* <select id="ItemAmountList"></select>*@
+                                                        @Html.DropDownListFor(m => m.amount, new List<SelectListItem>{
+                                                                            new SelectListItem { Text = "0", Value = "0" }
+                                                                   }, "Tution Fee")
+                                                        <i></i>
+                                                        <span id="NoAmountSelectMsg" class="card_errors" style="color: red"></span>
+                                                    </label>
+                                                    <i style="font-size: 16px;" class="icon-append fa fa-money"></i>
+                                                </div>
+                                            </div>
+
+                                            <div class="model_footer_buttons">
+                                                <div class="col-md-6">
+                                                    <button id="btnBillingBack" class="button button-block yellow_btn field-wrap submit_btn_main blue_color">Back</button>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <button id="btnBillingNext" class="button button-block yellow_btn field-wrap submit_btn_main">Next</button>
+                                                </div>
+                                            </div>
+                                            <div id="ErrorMsg"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @* } *@
+                    <div class="tab-pane" id="payment">
+                        <div class="form">
+                            <div class="inner_pages_box">
+                                <div class="row">
+                                    <div class="row">
+
+                                        <div class="col-md-12">
+                                            <div class="col-md-12">
+                                                <h4 class="sign_up_heading"><i class="sign_up_headding fa fa-user"></i>Preview Profile & Finally Payment</h4>
+                                                <hr>
+                                            </div>
+
+                                            <div class="summary_middle_box">
+
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="col-md-6 ">
+                                                            <div class="sign_up_summary">Name</div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="row">
+                                                                <div class="sign_up_summarytxt" id="NameDiv"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="">
+                                                            <div class="col-md-6 ">
+                                                                <div class="sign_up_summary">Email</div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="row">
+                                                                    <div class="sign_up_summarytxt" id="emailDiv"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="col-md-12">
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="sign_up_summary">City</div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="row">
+                                                                        <div class="sign_up_summarytxt" id="cityDiv"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="row">
+                                                                <div class="col-md-6 ">
+                                                                    <div class="sign_up_summary">Phone no</div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="row">
+                                                                        <div class="sign_up_summarytxt" id="phoneDiv"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="col-md-6 ">
+                                                            <div class="sign_up_summary">Address</div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="row">
+                                                                <div class="sign_up_summarytxt" id="AddressDiv">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="col-md-6 ">
+                                                            <div class="sign_up_summary">State</div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="row">
+                                                                <div class="sign_up_summarytxt" id="StateDiv">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="col-md-6 ">
+                                                            <div class="sign_up_summary">Country</div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="row">
+                                                                <div class="sign_up_summarytxt" id="CountryDiv"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="col-md-6 ">
+                                                            <div class="sign_up_summary">Zip Code</div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="row">
+                                                                <div class="sign_up_summarytxt" id="zipDiv"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="col-md-6 ">
+                                                            <div class="sign_up_summary">Card Number</div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="row">
+                                                                <div class="sign_up_summarytxt" id="CCardDiv">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="col-md-6 ">
+                                                            <div class="sign_up_summary">Initial Signup Amount</div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="row">
+                                                                <div class="sign_up_summarytxt" id="AmountDiv">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="model_footer_buttons">
+                                                <div class="col-md-6">
+                                                    <button id="btnPaymentBack" class="button button-block yellow_btn field-wrap submit_btn_main blue_color">Back</button>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <button id="btnSignUp" class="button button-block yellow_btn field-wrap submit_btn_main">Sign Up</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        //BindItemAmountList();
+
+        $('#btnBasicNext').click(function (e) {
+            $('#CardErrorMsg').hide();
+            $("#vldPassword").text("");
+            $("#phoneError").text("");
+
+            if ($('#email').val() == "") {
+                $("#email").attr('required', '');
+            }
+            else if ($("#phone").val() == "") {
+                $("#phoneError").text("Please enter phone number.");
+                return false;
+            }
+            else if ($('#password').val() == "") {
+                //$("#password").attr('required', '');
+                $('#vldPassword').text("Please enter password.");
+                return false;
+            }
+            else if ($('#password').val().length < 8) {
+                $("#vldPassword").text("Please enter password of at least 8 characters.");
+                return false;
+            }
+            else if ($('#confirmpassword').val() == "") {
+                //$("#confirmpassword").attr('required', '');
+                $('#PasswordError').text("Please enter confirm password.");
+                return false;
+            }
+            else {
+                e.preventDefault();
+                validateAndMoveNext();
+            }
+        });
+
+        $("#cardNumber").focus(function () {
+            $("#ccardErrorlbl").text("");
+        });
+
+        $('#btnBillingNext').click(function (e) {
+
+            $("#zipcodeError").text("");
+
+            if ($("#firstname").val() == "") {
+                $("#firstname").attr('required', '');
+                return false;
+            }
+            else if ($("#lastname").val() == "") {
+                $("#lastname").attr('required', '');
+                return false;
+            }
+            else if ($("#city").val() == "") {
+                $("#city").attr('required', '');
+                return false;
+            }
+            else if ($("#zip").val() == "") {
+                $("#zip").attr('required', '');
+                return false;
+            }
+            else if ($("#country").val() == "") {
+                $("#country").attr('required', '');
+                return false;
+            }
+            else if ($("#state").val() == "") {
+                $("#state").attr('required', '');
+                return false;
+            }
+            else if ($("#billingInfo").val() == "") {
+                $("#billingInfo").attr('required', '');
+                return false;
+            }
+            else if ($("#cardNumber").val() == "") {
+                $("#cardNumber").attr('required', '');
+                return false;
+            }
+            else if ($("#month").val() == "") {
+                $("#month").attr('required', '');
+                return false;
+            }
+            else if ($("#cardVerificationcode").val() == "") {
+                $("#cardVerificationcode").attr('required', '');
+                return false;
+            }
+            else if ($("#bankname").val() == "") {
+                $("#bankname").attr('required', '');
+                return false;
+            }
+            else if ($("#year").val() == "") {
+                $("#year").attr('required', '');
+                return false;
+            }
+            else if ($("#zip").val().length < 4) {
+                $("#zipcodeError").text("Please enter valid zip code.");
+                return false;
+            }
+            else if ($("#cardVerificationcode").val().length < 3) {
+                $("#cardVerificationError").text("Please enter valid code.");
+                return false;
+            }
+
+            else {
+                e.preventDefault();
+                //var IscardValid = Validatecardnumber($("#cardNumber").val());
+                // var isVeirficationcodeValid = ValidateVeirifcationCode($("#cardVerificationcode").val(), $("#cardType").val());
+                // if (IscardValid == true && isVeirficationcodeValid == true) {
+                $('a[href="#payment"]').click();
+                fillPreviewpage();
+                // }
+            }
+        });
+
+        $("#cardVerificationcode").focus(function () {
+            $("#cardVerificationcode").text('');
+            $("#cardVerificationError").text("");
+        });
+
+        $('#btnBillingBack').click(function (e) {
+            e.preventDefault();
+            $('a[href="#basic"]').click();
+
+        });
+
+        $('#btnPaymentBack').click(function (e) {
+            e.preventDefault();
+            $("#ccardErrorlbl").text("");
+            $("#cardVerificationError").text("");
+
+            $('a[href="#billing"]').click();
+        });
+
+        $("#confirmpassword").focus(function () {
+            $("#PasswordError").text("");
+            $("#vldPassword").text("");
+
+        });
+        $("#password").focus(function () {
+            $("#PasswordError").text("");
+            $("#vldPassword").text("");
+        });
+
+        $("#email").focus(function () {
+            $('#CardErrorMsg').hide();
+            $("#EmailError").text("");
+
+        });
+
+        $("#btnSignUp").click(function (e) {
+            e.preventDefault();
+            $('#CardErrorMsg').hide();
+            $('#UserSuccessMsg').show();
+            SaveSignUpInformation();
+
+        });
+    });
+
+
+
+    function fillPreviewpage() {
+        ResetPreview();
+        $("#NameDiv").html($("#firstname").val() + " " + $("#lastname").val());
+        $("#emailDiv").html($("#email").val());
+        $("#cityDiv").html($("#city").val());
+        $("#phoneDiv").html($('#phone').val());
+        $("#AddressDiv").html($("#billingInfo").val());
+        $("#StateDiv").html($("#state :selected").text());
+        //$("#CountryDiv").html($("#cid :selected").text());
+        $("#CountryDiv").html($("#country :selected").text());
+        $("#zipDiv").html($("#zip").val());
+        var str = $("#cardNumber").val();
+        var num = str.substring(str.length - 3);
+        $("#CCardDiv").html("XXXX-XXXX-XXXX-" + num);
+        $("#AmountDiv").html($('#amount :selected').text());
+
+      //  $("#AmountDiv").html($('select#ItemAmountList option:selected').text());
+
+    }
+
+    function ResetPreview() {
+        $("#NameDiv").html("");
+        $("#emailDiv").html("");
+        $("#cityDiv").html("");
+        $("#phoneDiv").html("");
+        $("#AddressDiv").html("");
+        $("#zipDiv").html("");
+        $("#CCardDiv").html("");
+        $("#AmountDiv").html("");
+        $("#StateDiv").html("");
+        $("#CountryDiv").html("");
+    }
+
+    function clearSignUpDetails() {
+        $("#email").val('');
+        $("#password").val('');
+        $("#confirmpassword").val("");
+        $("#firstname").val("");
+        $("#lastname").val("");
+        $("#city").val("");
+        $("#zip").val("");
+        $("#country").val("");
+        $("#billingInfo").val("");
+        $("#billingInfo").text('');
+        $("#cardNumber").val('');
+        $("#month").val("");
+        $("#year").val("");
+        $("#cardVerificationcode").val('');
+        $("#bankname").val('');
+        $("#amount").val('');
+
+    }
+
+    function SaveSignUpInformation() {
+
+        var ctype = $("#cardType").val();
+        var itemId = $('select#ItemAmountList option:selected').val();
+        var form = $('#signupform');
+       
+        $.ajax({
+            cache: false,
+            async: true,
+            type: "POST",
+            contenType: 'application/json; charset=utf-8',
+            url: form.attr('action'),
+            data: form.serialize() + '&cardType=' + ctype + '&itemId=' + itemId,
+            beforeSend: function () {
+                $("#loaderMain").show();
+            },
+            success: function (response) {
+                $("#loaderMain").hide();
+                if (response.success == "1") {
+                    $('#signup_popup').modal('hide');
+                    $('a[href="#login"]').click();
+                    $('#UserSuccessMsg').text("Thank you, Your account has been created successfully! Pls do continue with Login.");
+                    $('#UserSuccessMsg').show();
+                    //window.location.href = "/Home/Checkout";
+                }
+                else if (response.success == "2") {
+                    $('a[href="#billing"]').click();
+                    $('#CardErrorMsg').text("Your card information was invalid!Pls try again.");
+                    $('#CardErrorMsg').show();
+                    $('#UserSuccessMsg').hide();
+                }
+                else if (response.success == "3") {
+                    $('a[href="#basic"]').click();
+                    clearSignUpDetails();
+                    $('#CardErrorMsg').text("Oops Something went wrong!Pls try again.");
+                    $('#CardErrorMsg').show();
+                }
+                else if (response.success == "8") {
+                    $('a[href="#basic"]').click();
+                    $('#signup_popup').modal('hide');
+                    $('a[href="#login"]').click();
+                    $('#UserSuccessMsg').text("Your Account has been created successfully.We are Processing your Order shortly.");
+                    $('#UserSuccessMsg').show();
+                    $('#txtPhoneNumber').val("");
+                    //window.location.href = "/Home/Checkout";
+                }
+            }
+        });
+    }
+
+    function checkCExpire(dteStr) {
+
+        var reg = '^((0[1-9])|(1[0-2]))\/*((2011)|(20[1-9][1-9])|(2020)|(2030))$';
+
+        if (dteStr.match(reg)) {
+            return true;
+        }
+        else {
+            $("#CardExp").text("Expiry date - Please fill in valid expiry date in this format mm/yyyy.");
+            return false;
+        }
+    }
+
+    function Validatecardnumber(cardNum) {
+
+        if ($.isNumeric(cardNum)) {
+            var inptTxt = $("#cardNumber").val();
+            var c1 = inptTxt;
+            var c2 = inptTxt;
+            var c3 = inptTxt;
+            var Americansinitialchars = c1.substring(0, 2);
+            //alert("American " + Americansinitialchars);
+            var Visainitialchars = c2.substring(0, 1);
+            //alert("Visa " + Visainitialchars);
+            var Masterinitialchars = c3.substring(0, 2);
+            //alert("Master " + Masterinitialchars);
+
+            if ((Americansinitialchars == "34" || Americansinitialchars == "37" || inptTxt.length == "15")) {
+
+                var cardno = /^(?:3[47][0-9]{13})$/;
+                if (inptTxt.match(cardno)) {
+                    $("#cardType").val("American Express");
+                    return true;
+                }
+                else {
+                    //alert("Not a valid Amercican Express credit card number");
+                    $("#ccardErrorlbl").show();
+                    $("#ccardErrorlbl").text("Invalid credit card number");
+                    return false;
+                }
+            }
+            else if ((Visainitialchars == "4") && (inptTxt.length == "13" || inptTxt.length == "16")) {
+                var cardno = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
+                if (inptTxt.match(cardno)) {
+                    $("#cardType").val("Visa");
+                    return true;
+                }
+                else {
+
+                    $("#ccardErrorlbl").show();
+                    $("#ccardErrorlbl").text("Invalid credit card number");
+
+                    return false;
+                }
+            }
+            else if ((Masterinitialchars == "51" || Masterinitialchars == "55") && (inptTxt.length == "16" || inptTxt.length == "19")) {
+                var cardno1 = /^(?:5[1-5][0-9]{14})$/;
+                var cardno2 = /^(?:5[1-5][0-9]{17})$/;
+                if (inptTxt.match(cardno1)) {
+                    $("#cardType").val("MasterCard");
+                    return true;
+                }
+                else if (inptTxt.match(cardno2)) {
+                    $("#cardType").val("MasterCard");
+                    return true;
+                }
+                else {
+                    $("#ccardErrorlbl").show();
+                    $("#ccardErrorlbl").text("Invalid credit card number");
+                    return false;
+                }
+            }
+            else {
+                $("#ccardErrorlbl").show();
+                $("#ccardErrorlbl").text("Invalid credit card number");
+            }
+        }
+        else {
+            $("#ccardErrorlbl").show();
+            $("#ccardErrorlbl").text("Invalid credit card number");
+            return false;
+        }
+    }
+
+    function ValidateVeirifcationCode(vcode, Ctype) {
+
+        if ($.isNumeric(vcode)) {
+
+            if (vcode.length < 4 && Ctype == "American Express") {
+                $("#cardVerificationError").text("Please enter valid code.");
+                return false;
+            }
+                //&& Ctype == "MasterCard" || Ctype == "Visa") {
+            else if (vcode.length > 3 && Ctype != "American Express") {
+                $("#cardVerificationError").text("Please enter valid code.");
+                return false;
+            }
+            return true;
+        }
+        else {
+            $("#cardVerificationError").text("Please enter only numeric value.");
+            return false;
+        }
+    }
+
+    function validateAndMoveNext() {
+        var isValidEmail = validateUEmail($("#email").val());
+
+        if (isValidEmail == false) {
+            $("#EmailError").text("Please enter valid email address");
+            return false;
+        }
+        if ($("#password").val() != $("#confirmpassword").val()) {
+            $("#PasswordError").text("Password and Confirm Password don't match");
+            return false;
+
+        } else {
+            $('a[href="#billing"]').click();
+        }
+
+
+    }
+
+    function validateUEmail(Uemail) {
+
+        email_regex = /^[a-zA-Z0-9\.\_]+\@@{1}[a-zA-Z0-9]+\.\w{2,4}$/;
+        if (!email_regex.test(Uemail)) {
+            $("#EmailError").text("Please enter valid email address");
+            return false;
+        } else { return true; }
+    }
+
+    //function BindItemAmountList() {
+
+    //    $('#ItemAmountList').html("");
+
+    //    $.ajax({
+    //        url: "/Home/GetItemAmount",
+    //        type: "Get",
+    //        success: function (data) {
+    //            var optionhtml1 = '<option value="' +
+    //             0 + '">' + "--Select an amount--" + '</option>';
+    //            $('#ItemAmountList').append(optionhtml1);
+
+    //            for (var i = 0; i < data.length; i++) {
+    //                var CardList = new Option("$" + data[i].itemprice, data[i].itemid);
+    //                $('#ItemAmountList').append(CardList);
+    //            }
+    //        }
+    //    });
+    //}
+
+
+
+
+</script>

@@ -1,0 +1,8 @@
+E:\Webinar.Web\Webinar.DAL\bin\Release\Webinar.DAL.dll.config
+E:\Webinar.Web\Webinar.DAL\bin\Release\Webinar.DAL.dll
+E:\Webinar.Web\Webinar.DAL\bin\Release\Webinar.DAL.pdb
+E:\Webinar.Web\Webinar.DAL\bin\Release\EntityFramework.dll
+E:\Webinar.Web\Webinar.DAL\bin\Release\EntityFramework.xml
+E:\Webinar.Web\Webinar.DAL\obj\Release\Webinar.DAL.csprojResolveAssemblyReference.cache
+E:\Webinar.Web\Webinar.DAL\obj\Release\Webinar.DAL.dll
+E:\Webinar.Web\Webinar.DAL\obj\Release\Webinar.DAL.pdb

@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Test";
+    Layout = "~/Views/Shared/_OnlineTestLayout";
+}
+
+<h2>Test</h2>
+<div ng-app="OnlineTest" ng-controller="TestCtrl">
+   
+    <table class="row form-group" ng-repeat="item in Model">
+
+        <tr>
+
+            <td>
+               
+                    {{$index +1}}) {{item.Question1}}
+
+               
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                <div ng-repeat="answer in item.answerList">
+                    <div class="col-md-12">
+                        {{$index +1}}) <input type="radio" name="optiongroup{{$parent.$index}}" ng-model="$parent.item.AnswerId" ng-value="answer.AnswerId" />
+                        {{answer.Answer1}}
+                    </div>
+
+
+                </div>
+
+
+
+            </td>
+
+
+        </tr>
+
+    </table>
+    <div>
+        <input class="btn btn-success" type="button" value="Submit" ng-click="SubmitTest(Model)" />
+    </div>
+</div>
+<script src="~/Scripts/Test/TestCtrl.js"></script>

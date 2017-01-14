@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webinar.Web", "Webinar.Web\Webinar.Web.csproj", "{8E6836F1-DCB0-45AC-ADFF-26BABFA31CF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webinar.Web.Tests", "Webinar.Web.Tests\Webinar.Web.Tests.csproj", "{669B4A8B-6B6D-4C58-9763-F65B289B0402}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTestBll", "OnlineTestBll\OnlineTestBll.csproj", "{9E8F7F91-C9F4-4F8E-802F-02E7185E006B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTestDataAccess", "OnlineTestDataAccess\OnlineTestDataAccess.csproj", "{4FB18786-E2EA-4723-B28D-DBD95DBD9EED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webinar.DAL", "Webinar.DAL\Webinar.DAL.csproj", "{139AE02F-0217-43FC-8DB7-9B2CF02BC06C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webinar.ZoomAPI", "Webinar.ZoomAPI\Webinar.ZoomAPI.csproj", "{9312E861-F5D2-415D-BA15-23E97CDE0E4D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8E6836F1-DCB0-45AC-ADFF-26BABFA31CF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E6836F1-DCB0-45AC-ADFF-26BABFA31CF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E6836F1-DCB0-45AC-ADFF-26BABFA31CF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E6836F1-DCB0-45AC-ADFF-26BABFA31CF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{669B4A8B-6B6D-4C58-9763-F65B289B0402}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{669B4A8B-6B6D-4C58-9763-F65B289B0402}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{669B4A8B-6B6D-4C58-9763-F65B289B0402}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{669B4A8B-6B6D-4C58-9763-F65B289B0402}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E8F7F91-C9F4-4F8E-802F-02E7185E006B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E8F7F91-C9F4-4F8E-802F-02E7185E006B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E8F7F91-C9F4-4F8E-802F-02E7185E006B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E8F7F91-C9F4-4F8E-802F-02E7185E006B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FB18786-E2EA-4723-B28D-DBD95DBD9EED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FB18786-E2EA-4723-B28D-DBD95DBD9EED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FB18786-E2EA-4723-B28D-DBD95DBD9EED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FB18786-E2EA-4723-B28D-DBD95DBD9EED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{139AE02F-0217-43FC-8DB7-9B2CF02BC06C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{139AE02F-0217-43FC-8DB7-9B2CF02BC06C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{139AE02F-0217-43FC-8DB7-9B2CF02BC06C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{139AE02F-0217-43FC-8DB7-9B2CF02BC06C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9312E861-F5D2-415D-BA15-23E97CDE0E4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9312E861-F5D2-415D-BA15-23E97CDE0E4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9312E861-F5D2-415D-BA15-23E97CDE0E4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9312E861-F5D2-415D-BA15-23E97CDE0E4D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "AllCategory";
+    Layout = "~/Views/Shared/_OnlineTestLayout";
+}
+
+<h2>All Category</h2>
+
+
+
+<div ng-app="OnlineTest" ng-controller="CategoryCtrl" >
+    <table>
+        <tr>
+            <th>Category Name</th>
+        </tr>
+        <tr>
+            <td>
+               <input type="text" ng-model="CategoryName" />
+
+            </td>
+            <td >
+                <input class="btn btn-success" type="button" value="+ Add" ng-click="AddCategory(item)" />
+            </td>
+        </tr>
+    </table>
+  
+  <div class="row">
+      <div class="col-md-12"><h2>Edit Categories</h2></div>
+  </div>
+    <table>
+        <tr>
+            <th>Category Name</th>
+        </tr>
+        <tr ng-repeat="item in Model">
+            <td><input type="text" ng-model="item.CategoryName" /></td>
+            <td><input class="btn btn-success" type="button" value="Update" ng-click="UpdateCategory(item)" /></td>
+            <td><input class="btn btn-danger" type="button" value="Delete" ng-click="DeleteCategory(item)" /></td>
+        </tr>
+    </table>
+    
+</div>
+<script src="~/Scripts/Category/CategoryCtrl.js"></script>

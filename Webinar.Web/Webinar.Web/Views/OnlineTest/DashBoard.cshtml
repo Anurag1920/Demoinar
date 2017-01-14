@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "DashBoard";
+    Layout = "~/Views/Shared/_OnlineTestLayout";
+}
+
+<h2>DashBoard</h2>
+
+<div ng-app="OnlineTest" ng-controller="DashBoardCtrl">
+    <table>
+        <tr>
+            <th>User No.</th>
+            <th>User Name</th>
+            <th>Email</th>
+            
+        </tr>
+       
+        <tr ng-repeat="item in Model">
+            <td>{{$index +1}}</td>
+            <td>{{item.UserName}}</td>
+            <td>{{item.Email}}</td>           
+        </tr>
+    </table>
+</div>
+<script src="~/Scripts/DashBoard/DashBoardCtrl.js"></script>

@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PISchologistDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="PISchologistDBModelStoreContainer">
+    <EntitySet Name="tblCardInfo" EntityType="PISchologistDBModel.Store.tblCardInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblCountry" EntityType="PISchologistDBModel.Store.tblCountry" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblRole" EntityType="PISchologistDBModel.Store.tblRole" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblUser" EntityType="PISchologistDBModel.Store.tblUser" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblWebinarDetail" EntityType="PISchologistDBModel.Store.tblWebinarDetail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblZoomInstaller" EntityType="PISchologistDBModel.Store.tblZoomInstaller" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="tblCardInfo">
+    <Key>
+      <PropertyRef Name="cardid" />
+    </Key>
+    <Property Name="cardid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="customerid" Type="int" />
+    <Property Name="cardno" Type="nvarchar" MaxLength="16" />
+    <Property Name="cardtype" Type="nvarchar" MaxLength="15" />
+    <Property Name="expyear" Type="nvarchar" MaxLength="4" />
+    <Property Name="expmonth" Type="nvarchar" MaxLength="2" />
+    <Property Name="expday" Type="nvarchar" MaxLength="2" />
+    <Property Name="expdate" Type="smalldatetime" />
+    <Property Name="lastused" Type="smalldatetime" />
+    <Property Name="amtused" Type="money" />
+    <Property Name="amtusedytd" Type="money" />
+  </EntityType>
+  <EntityType Name="tblCountry">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="country" Type="nvarchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="tblRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Role" Type="varchar" MaxLength="10" />
+    <Property Name="isactive" Type="bit" />
+  </EntityType>
+  <EntityType Name="tblUser">
+    <Key>
+      <PropertyRef Name="PI_id" />
+    </Key>
+    <Property Name="PI_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PI_fname" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="PI_lname" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="PI_email" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="PI_password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PI_phone_number" Type="varchar" MaxLength="20" />
+    <Property Name="PI_created_date" Type="datetime" />
+    <Property Name="PI_last_access_dt" Type="date" />
+    <Property Name="PI_zoom_user_id" Type="nvarchar" MaxLength="50" />
+    <Property Name="PI_IsLoggedIn" Type="bit" />
+    <Property Name="PI_timezone" Type="nvarchar" MaxLength="200" />
+    <Property Name="PI_Isadmin" Type="bit" />
+  </EntityType>
+  <EntityType Name="tblWebinarDetail">
+    <Key>
+      <PropertyRef Name="WebinarId" />
+    </Key>
+    <Property Name="WebinarId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="WebinaruserId" Type="int" />
+    <Property Name="Webinar_starturl" Type="nvarchar(max)" />
+    <Property Name="Webinar_joinurl" Type="nvarchar(max)" />
+    <Property Name="Webinar_starttime" Type="datetime" />
+    <Property Name="Webinar_endtime" Type="datetime" />
+    <Property Name="Webinar_duration" Type="int" />
+    <Property Name="Webinar_type" Type="int" />
+    <Property Name="Webinar_timezone" Type="nchar" MaxLength="10" />
+    <Property Name="Webinar_meeting_id" Type="nvarchar" MaxLength="50" />
+    <Property Name="Webinar_meeting_status" Type="int" />
+    <Property Name="Webinar_host_id" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblZoomInstaller">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="IszoomInstall" Type="bit" />
+    <Property Name="UserId" Type="int" />
+  </EntityType>
+</Schema>

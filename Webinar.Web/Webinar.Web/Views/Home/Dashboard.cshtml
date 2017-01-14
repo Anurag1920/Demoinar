@@ -1,0 +1,214 @@
+﻿@model Webinar.DAL.Model.UserVM
+@{
+    ViewBag.Title = "DashBoard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="inner_middle_area_box">
+    <div>
+        <div class="container">
+
+            <div id="MsgSuccess" class="alert alert-success alert-dismissible fade in" role="alert" style="display: none">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div id="MsgError" class="alert alert-danger alert-dismissible fade in" role="alert" style="display: none">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    @*  if (Model != null)
+                        {*@
+                    <div class="row">
+                        <div style="width: 75%; height: auto; margin: 30px auto; display: none">
+                            <iframe id="StartIframe" width="100%" height="0px" frameborder="0" style="display: none;"></iframe>
+                        </div>
+                        <div style="width: 75%; height: auto; margin: 30px auto; display: none">
+                            <iframe id="JoinIframe" width="100%" height="0px" frameborder="0" style="display: none;"></iframe>
+                        </div>
+                        @Html.Partial("_Menubar")
+                        <input id="cusid" type="hidden" value="@ViewData["custid"]" />
+                        <div class="col-lg-9 col-sm-9 col-xs-9 col-md-9 wow fadeInRight">
+                            <div class="right-side">
+                                <div class="btn-top-singup">
+                                    <a href="~/Home/DashBoard">@Webinar.Web.Helper.SessionManager.UserName <i class="fa fa-user"></i></a>
+                                    @using (Html.BeginForm("LogOff", "Home", FormMethod.Post, new { id = "logoutForm", @class = "sign_out_form" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <a href="javascript:document.getElementById('logoutForm').submit()">Sign Out <i class="fa fa-sign-out"></i></a>
+                                    }
+                                </div>
+                                <div class="about-account" id="DivContainer">
+                                    <div class="header-account">
+                                        <h4>My Dashboard</h4>
+                                        @* <span>Centsible Calling is a prepaid international and domestic calling service available for your cellular, home and business phones.</span>*@
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="row">
+                                                <div class="col-md-7 col-sm-7">
+                                                    <div class="num-wrp">
+                                                        @* @if (Model.custPhoneList.Count > 0)
+                                                            {
+                                                                <div class="dasboard_box">
+                                                                    <div class="col-md-6 col-sm-12">
+
+                                                                        <h5>Phone number(s)</h5>
+                                                                        @foreach (var item in Model.custPhoneList)
+                                                                        {
+                                                                            <p>@item.phone</p>
+                                                                        }
+
+                                                                    </div>
+                                                                </div>
+                                                            }*@
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-5  col-sm-5">
+                                                    <div class="pig-bank">
+                                                        <h4>Today's Webinar:</h4>
+                                                        <p></p>
+                                                        @if (Webinar.Web.Helper.SessionManager.UserIsAdmin == true)
+                                                        {
+                                                            <a id="startwebinar" href="#">Start Class here</a>
+@* <a id="startwebinar" href='@Url.Action("StartWebinar", "Home")'>Start Class here</a>   *@
+                                                        }
+                                                        else
+                                                        {
+@*<a id="JoinWebinar" href='#'>Join Class here</a>*@
+                                                            <a id="JoinWebinar" href='#'>Join Class here</a>
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @*// }*@
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+
+    $("#startwebinar").click(function (e) {
+        $('#MsgSuccess').hide();
+        $('#MsgError').hide();
+
+        var isInstalled = confirm("Are you sure that you have installed video set up ? If not then Please press ok to install it.");
+        if (isInstalled == true) {
+            window.location = "http://physicssimplified.in/WebinarInstaller.exe";
+            $('#MsgSuccess').text("Please start again your webinar after software installation! Thanks.");
+            setTimeout(function () { $('#MsgSuccess').show(); }, 5000);
+        } else {
+            StartWebinar();
+        }
+    });
+
+    $("#JoinWebinar").click(function (e) {
+        $('#MsgSuccess').hide();
+        $('#MsgError').hide();
+
+        var isInstalled = confirm("Are you sure that you have installed webinar video set up ? If not then Please press ok to install it.");
+        if (isInstalled == true) {
+            window.location = "http://physicssimplified.in/WebinarInstaller.exe";
+            $('#MsgSuccess').text("Please start again your webinar after software installation! Thanks.");
+            setTimeout(function () { $('#MsgSuccess').show(); }, 5000);
+        } else {
+            JoinWebinar();
+        }
+    });
+
+    function StartWebinar() {
+        $.ajax({
+            url: "/Home/StartWebinar/",
+            type: 'Get',
+            contentType: false,
+            processData: false,
+            beforeSend: function () {
+                $("#loader").show();
+            },
+            success: function (response) {
+                if (response.StartWebinarUrl != "") {
+                    $('#StartIframe').attr('src', response.StartWebinarUrl);
+                }
+                else if (response.success == "11") {
+                    $('#MsgError').text("Your device is not supported.We recommend window OS.");
+                    $('#MsgError').show();
+                }
+                setTimeout(function () { $("#loader").hide(); }, 5000);
+
+            },
+            error: function (error) {
+                $("#loader").hide();
+            },
+        });
+    }
+
+    function JoinWebinar() {
+
+        $.ajax({
+            url: "/Home/JoinWebinar/",
+            type: 'Get',
+            contentType: false,
+            processData: false,
+            beforeSend: function () {
+                $("#loader").show();
+            },
+            success: function (response) {
+
+                if (response.JoinWebinarUrl != "") {
+                    $('#JoinIframe').attr('src', response.JoinWebinarUrl);
+                }
+                else if (response.success == "11") {
+                    $('#MsgError').text("Your device is not supported.We recommend window OS.");
+                    $('#MsgError').show();
+                }
+                setTimeout(function () { $("#loader").hide(); }, 5000);
+            },
+            error: function () {
+                $("#loader").hide();
+            },
+        });
+
+    }
+    function IsZoomApplicationInstalled() {
+
+        $.ajax({
+            url: "/Home/IsApplicationInstalled/",
+            type: 'Get',
+            contentType: false,
+            processData: false,
+            beforeSend: function () {
+                $("#loader").show();
+            },
+            success: function (response) {
+                if (response.status == true) {
+                    StartWebinar();
+                }
+                else {
+                    $('#MsgSuccess').text("Please start again your webinar after software installation! Thanks.");
+                    $('#MsgSuccess').show();
+                }
+                $("#loader").hide();
+            },
+            error: function (error) {
+                 
+                $("#loader").hide();
+            },
+        });
+
+
+    }
+
+</script>

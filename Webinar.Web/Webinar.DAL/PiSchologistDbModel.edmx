@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PISchologistDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="PISchologistDBModelStoreContainer">
+          <EntitySet Name="tblCardInfo" EntityType="PISchologistDBModel.Store.tblCardInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblCountry" EntityType="PISchologistDBModel.Store.tblCountry" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblRole" EntityType="PISchologistDBModel.Store.tblRole" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblUser" EntityType="PISchologistDBModel.Store.tblUser" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblWebinarDetail" EntityType="PISchologistDBModel.Store.tblWebinarDetail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblZoomInstaller" EntityType="PISchologistDBModel.Store.tblZoomInstaller" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="tblCardInfo">
+          <Key>
+            <PropertyRef Name="cardid" />
+          </Key>
+          <Property Name="cardid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="customerid" Type="int" />
+          <Property Name="cardno" Type="nvarchar" MaxLength="16" />
+          <Property Name="cardtype" Type="nvarchar" MaxLength="15" />
+          <Property Name="expyear" Type="nvarchar" MaxLength="4" />
+          <Property Name="expmonth" Type="nvarchar" MaxLength="2" />
+          <Property Name="expday" Type="nvarchar" MaxLength="2" />
+          <Property Name="expdate" Type="smalldatetime" />
+          <Property Name="lastused" Type="smalldatetime" />
+          <Property Name="amtused" Type="money" />
+          <Property Name="amtusedytd" Type="money" />
+        </EntityType>
+        <EntityType Name="tblCountry">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="country" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="tblRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Role" Type="varchar" MaxLength="10" />
+          <Property Name="isactive" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="PI_id" />
+          </Key>
+          <Property Name="PI_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PI_fname" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="PI_lname" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="PI_email" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="PI_password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PI_phone_number" Type="varchar" MaxLength="20" />
+          <Property Name="PI_created_date" Type="datetime" />
+          <Property Name="PI_last_access_dt" Type="date" />
+          <Property Name="PI_zoom_user_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="PI_IsLoggedIn" Type="bit" />
+          <Property Name="PI_timezone" Type="nvarchar" MaxLength="200" />
+          <Property Name="PI_Isadmin" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblWebinarDetail">
+          <Key>
+            <PropertyRef Name="WebinarId" />
+          </Key>
+          <Property Name="WebinarId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="WebinaruserId" Type="int" />
+          <Property Name="Webinar_starturl" Type="nvarchar(max)" />
+          <Property Name="Webinar_joinurl" Type="nvarchar(max)" />
+          <Property Name="Webinar_starttime" Type="datetime" />
+          <Property Name="Webinar_endtime" Type="datetime" />
+          <Property Name="Webinar_duration" Type="int" />
+          <Property Name="Webinar_type" Type="int" />
+          <Property Name="Webinar_timezone" Type="nchar" MaxLength="10" />
+          <Property Name="Webinar_meeting_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="Webinar_meeting_status" Type="int" />
+          <Property Name="Webinar_host_id" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblZoomInstaller">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IszoomInstall" Type="bit" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PISchologistDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="PISchologistDBEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="tblCardInfoes" EntityType="PISchologistDBModel.tblCardInfo" />
+          <EntitySet Name="tblCountries" EntityType="PISchologistDBModel.tblCountry" />
+          <EntitySet Name="tblRoles" EntityType="PISchologistDBModel.tblRole" />
+          <EntitySet Name="tblUsers" EntityType="PISchologistDBModel.tblUser" />
+          <EntitySet Name="tblWebinarDetails" EntityType="PISchologistDBModel.tblWebinarDetail" />
+          <EntitySet Name="tblZoomInstallers" EntityType="PISchologistDBModel.tblZoomInstaller" />
+        </EntityContainer>
+        <EntityType Name="tblCardInfo">
+          <Key>
+            <PropertyRef Name="cardid" />
+          </Key>
+          <Property Name="cardid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="customerid" Type="Int32" />
+          <Property Name="cardno" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
+          <Property Name="cardtype" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="expyear" Type="String" MaxLength="4" Unicode="true" FixedLength="false" />
+          <Property Name="expmonth" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+          <Property Name="expday" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+          <Property Name="expdate" Type="DateTime" Precision="0" />
+          <Property Name="lastused" Type="DateTime" Precision="0" />
+          <Property Name="amtused" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="amtusedytd" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="tblCountry">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="country" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tblRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Role" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="isactive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="PI_id" />
+          </Key>
+          <Property Name="PI_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="PI_fname" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="PI_lname" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="PI_email" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="PI_password" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="PI_phone_number" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="PI_created_date" Type="DateTime" Precision="3" />
+          <Property Name="PI_last_access_dt" Type="DateTime" Precision="0" />
+          <Property Name="PI_zoom_user_id" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="PI_IsLoggedIn" Type="Boolean" />
+          <Property Name="PI_timezone" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="PI_Isadmin" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tblWebinarDetail">
+          <Key>
+            <PropertyRef Name="WebinarId" />
+          </Key>
+          <Property Name="WebinarId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="WebinaruserId" Type="Int32" />
+          <Property Name="Webinar_starturl" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Webinar_joinurl" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Webinar_starttime" Type="DateTime" Precision="3" />
+          <Property Name="Webinar_endtime" Type="DateTime" Precision="3" />
+          <Property Name="Webinar_duration" Type="Int32" />
+          <Property Name="Webinar_type" Type="Int32" />
+          <Property Name="Webinar_timezone" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="Webinar_meeting_id" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Webinar_meeting_status" Type="Int32" />
+          <Property Name="Webinar_host_id" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tblZoomInstaller">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IszoomInstall" Type="Boolean" />
+          <Property Name="UserId" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PISchologistDBModelStoreContainer" CdmEntityContainer="PISchologistDBEntities">
+          <EntitySetMapping Name="tblCardInfoes">
+            <EntityTypeMapping TypeName="PISchologistDBModel.tblCardInfo">
+              <MappingFragment StoreEntitySet="tblCardInfo">
+                <ScalarProperty Name="cardid" ColumnName="cardid" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="cardno" ColumnName="cardno" />
+                <ScalarProperty Name="cardtype" ColumnName="cardtype" />
+                <ScalarProperty Name="expyear" ColumnName="expyear" />
+                <ScalarProperty Name="expmonth" ColumnName="expmonth" />
+                <ScalarProperty Name="expday" ColumnName="expday" />
+                <ScalarProperty Name="expdate" ColumnName="expdate" />
+                <ScalarProperty Name="lastused" ColumnName="lastused" />
+                <ScalarProperty Name="amtused" ColumnName="amtused" />
+                <ScalarProperty Name="amtusedytd" ColumnName="amtusedytd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCountries">
+            <EntityTypeMapping TypeName="PISchologistDBModel.tblCountry">
+              <MappingFragment StoreEntitySet="tblCountry">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="country" ColumnName="country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblRoles">
+            <EntityTypeMapping TypeName="PISchologistDBModel.tblRole">
+              <MappingFragment StoreEntitySet="tblRole">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="isactive" ColumnName="isactive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUsers">
+            <EntityTypeMapping TypeName="PISchologistDBModel.tblUser">
+              <MappingFragment StoreEntitySet="tblUser">
+                <ScalarProperty Name="PI_id" ColumnName="PI_id" />
+                <ScalarProperty Name="PI_fname" ColumnName="PI_fname" />
+                <ScalarProperty Name="PI_lname" ColumnName="PI_lname" />
+                <ScalarProperty Name="PI_email" ColumnName="PI_email" />
+                <ScalarProperty Name="PI_password" ColumnName="PI_password" />
+                <ScalarProperty Name="PI_phone_number" ColumnName="PI_phone_number" />
+                <ScalarProperty Name="PI_created_date" ColumnName="PI_created_date" />
+                <ScalarProperty Name="PI_last_access_dt" ColumnName="PI_last_access_dt" />
+                <ScalarProperty Name="PI_zoom_user_id" ColumnName="PI_zoom_user_id" />
+                <ScalarProperty Name="PI_IsLoggedIn" ColumnName="PI_IsLoggedIn" />
+                <ScalarProperty Name="PI_timezone" ColumnName="PI_timezone" />
+                <ScalarProperty Name="PI_Isadmin" ColumnName="PI_Isadmin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblWebinarDetails">
+            <EntityTypeMapping TypeName="PISchologistDBModel.tblWebinarDetail">
+              <MappingFragment StoreEntitySet="tblWebinarDetail">
+                <ScalarProperty Name="WebinarId" ColumnName="WebinarId" />
+                <ScalarProperty Name="WebinaruserId" ColumnName="WebinaruserId" />
+                <ScalarProperty Name="Webinar_starturl" ColumnName="Webinar_starturl" />
+                <ScalarProperty Name="Webinar_joinurl" ColumnName="Webinar_joinurl" />
+                <ScalarProperty Name="Webinar_starttime" ColumnName="Webinar_starttime" />
+                <ScalarProperty Name="Webinar_endtime" ColumnName="Webinar_endtime" />
+                <ScalarProperty Name="Webinar_duration" ColumnName="Webinar_duration" />
+                <ScalarProperty Name="Webinar_type" ColumnName="Webinar_type" />
+                <ScalarProperty Name="Webinar_timezone" ColumnName="Webinar_timezone" />
+                <ScalarProperty Name="Webinar_meeting_id" ColumnName="Webinar_meeting_id" />
+                <ScalarProperty Name="Webinar_meeting_status" ColumnName="Webinar_meeting_status" />
+                <ScalarProperty Name="Webinar_host_id" ColumnName="Webinar_host_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblZoomInstallers">
+            <EntityTypeMapping TypeName="PISchologistDBModel.tblZoomInstaller">
+              <MappingFragment StoreEntitySet="tblZoomInstaller">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IszoomInstall" ColumnName="IszoomInstall" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

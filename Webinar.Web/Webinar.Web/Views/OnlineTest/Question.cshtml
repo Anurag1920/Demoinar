@@ -1,0 +1,129 @@
+﻿@{
+    ViewBag.Title = "Question";
+    Layout = "~/Views/Shared/_OnlineTestLayout";
+}
+
+<h2>View Questions</h2>
+
+<div ng-app="OnlineTest" ng-controller="QuestionCtrl">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Add Question</h2>
+        </div>
+    </div>
+    <table>
+        <tr>
+            <th>Category</th>
+            <th>Question</th>
+            <th>
+                Options
+                <input type="button" ng-click="AddOption()" value="+" class="btn btn-success">
+
+            </th>
+            <th>
+                Correct option
+            </th>
+        </tr>
+        <tr>
+            <td>
+
+                <select ng-model="form.CategoryId" ng-options="x.CategoryId as  x.CategoryName for x in Categories"></select>
+
+            </td>
+            <td>
+
+                <textarea ng-model="form.Question" style="width: 280px;"></textarea>
+
+            </td>
+            <td style="width:220px;">
+
+                <div  ng-repeat="opt in optionList">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <input type="text" ng-model="$parent.optionList[$index]" ng-model-options='{ debounce: 500 }' />
+                        </div>
+                        <div class="col-md-3">
+                            <input type="button" class="btn btn-danger " ng-click="RemoveOption($index)" value="-" />
+                        </div>
+                    </div>
+                    <div class="">&nbsp;</div>
+                </div>
+
+              
+</td>
+            <td>
+              
+                    <select ng-model="form.CorrectOption" ng-options="x for x in optionList"></select>
+               
+            </td>
+            <td>
+                <div class="col-md-1">
+                    <input class="btn btn-success" type="button" value="Add" ng-click="AddQuestion(form)" />
+                </div>
+            </td>
+        </tr>
+    </table>
+   
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Edit Questions</h2>
+        </div>
+    </div>
+
+    <table  ng-repeat="item in Model">
+        <tr>
+            <th>Category</th>
+            <th>Question</th>
+
+            <th>Options <input class="btn btn-success" type="button" value="+" ng-click="EditOption(item.answerList,item.QuestionId)" /></th>
+            <th>Correct Option</th>
+        </tr>
+        <tr>
+            <td>
+               
+                    <select ng-model="item.CategoryId" ng-options="x.CategoryId as  x.CategoryName for x in Categories"></select>
+               
+            </td>
+            <td>
+                
+                <textarea ng-model="item.Question1" style="width: 280px;"></textarea>
+              
+            </td>
+
+            <td>
+
+                <div ng-repeat="answer in item.answerList">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <input type="text" ng-model="answer.Answer1" />
+                        </div>
+                        <div class="col-md-3">
+                            <input class="btn btn-danger" type="button" value="-" ng-click="EditDeleteOption(item.answerList,$index)" />
+                        </div>
+                    </div>
+                    <div class="row">&nbsp;</div>
+                </div>
+              
+            </td>
+            <td>
+              
+                    <select ng-model="item.CorrectAnswer" ng-options="x.Answer1 as x.Answer1 for x in  item.answerList"></select>
+               
+            </td>
+            <td>
+                <div class="col-md-2">
+                    <input class="btn btn-success" type="button" value="Update" ng-click="UpdateQuestion(item)" />
+                </div>
+            </td>
+            <td>
+                <div class="col-md-2">
+                    <input class="btn btn-danger" type="button" value="Delete" ng-click="DeleteQuestion(item)" />
+                </div>
+            </td>
+        </tr>
+
+    </table>
+   
+</div>
+
+<script src="~/Scripts/Question/QuestionCtrl.js"></script>

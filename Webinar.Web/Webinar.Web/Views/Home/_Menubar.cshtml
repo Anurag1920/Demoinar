@@ -1,0 +1,56 @@
+﻿<div class="col-lg-3 col-sm-3  col-xs-3 col-md-3 pad-zero wow fadeInLeft">
+    <div class="left-menubar">
+        <ul>
+            <li><a class ="AccountInfoTabs" href='@Url.Action("BillingInformation", "Home")'><span>My Profile</span>
+                <img src="~/Images/billing-info-icon.png" alt="Billing Information" title="Billing Information">
+                <img src="~/Images/billing-info-icon_hover.png" alt="Billing Information" title="Billing Information" class="hover">
+                <div class="clearfix"></div>
+            </a></li>
+            <li><a class ="AccountInfoTabs" href='@Url.Action("callhistory", "Home")'><span>Webinar History </span>
+                <img src="~/Images/call-history-icon.png" alt="Call History" title="Call History">
+                <img src="~/Images/call-history-icon_hover.png" alt="Call History" title="Call History" class="hover">
+                <div class="clearfix"></div>
+            </a></li>
+
+            @* <li><a class ="AccountInfoTabs" href='@Url.Action("PhoneNumber", "Home")'><span>Phone no</span>
+                <img src="~/Images/Phone-no-icon.png" alt="Phone no" title="Phone no">
+                <img src="~/Images/Phone-no-icon_hover.png" alt="Phone no" title="Phone no" class="hover">
+                <div class="clearfix"></div>
+            </a></li>*@
+          
+            <li><a class="AccountInfoTabs" href='@Url.Action("DirectDial", "Home")'><span>Online Test</span>
+                <img src="~/Images/speed--dial-icon.png" alt="Speed Dial" title="Speed Dial">
+                <img src="~/Images/speed--dial-icon_hover.png" alt="Speed Dial" title="Speed Dial" class="hover">
+                <div class="clearfix"></div>
+            </a></li>
+              <li><a class="AccountInfoTabs" href='@Url.Action("RechargeAccount", "Home")'><span>Reports</span>
+                <img src="~/Images/recharge-account-icon.png" alt="Recharge Account" title="Recharge Account">
+                <img src="~/Images/recharge-account-icon_hover.png" alt="Recharge Account" title="Recharge Account" class="hover">
+                <div class="clearfix"></div>
+            </a></li>
+              <li><a class="AccountInfoTabs" href='@Url.Action("RechargeAccount", "Home")'><span>My Recording</span>
+                <img src="~/Images/recharge-account-icon.png" alt="Recharge Account" title="Recharge Account">
+                <img src="~/Images/recharge-account-icon_hover.png" alt="Recharge Account" title="Recharge Account" class="hover">
+                <div class="clearfix"></div>
+            </a></li>
+            <li><a class="AccountInfoTabs" href='@Url.Action("ChangePassword", "Home")'><span>Change Password</span>
+                <img src="~/Images/change-password-icon.png" alt="Change Password" title="Change Password">
+                <img src="~/Images/change-password-icon_hover.png" alt="Change Password" title="Change Password" class="hover">
+                <div class="clearfix"></div>
+            </a></li>
+
+            <div class="clearfix"></div>
+        </ul>
+
+        <div class="social_aside">
+            <a href="#" class="icon-button twitter"><i class="icon-twitter fa fa-twitter"></i><span></span></a>
+            <a href="#" class="icon-button facebook"><i class="icon-facebook fa fa-facebook"></i><span></span></a>
+            <a href="#" class="icon-button google-plus"><i class="icon-google-plus fa fa-google-plus"></i><span></span></a>
+
+        </div>
+    </div>
+</div>
+
+@*@Scripts.Render("~/bundles/bootstrap")*@
+@Scripts.Render("~/bundles/jquery")
+<script type="text/javascript" src="~/Scripts/js/bootstrap.min.js"></script>

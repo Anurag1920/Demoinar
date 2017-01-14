@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PISchologistDBModelStoreContainer" CdmEntityContainer="PISchologistDBEntities">
+    <EntitySetMapping Name="tblCardInfoes">
+      <EntityTypeMapping TypeName="PISchologistDBModel.tblCardInfo">
+        <MappingFragment StoreEntitySet="tblCardInfo">
+          <ScalarProperty Name="cardid" ColumnName="cardid" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="cardno" ColumnName="cardno" />
+          <ScalarProperty Name="cardtype" ColumnName="cardtype" />
+          <ScalarProperty Name="expyear" ColumnName="expyear" />
+          <ScalarProperty Name="expmonth" ColumnName="expmonth" />
+          <ScalarProperty Name="expday" ColumnName="expday" />
+          <ScalarProperty Name="expdate" ColumnName="expdate" />
+          <ScalarProperty Name="lastused" ColumnName="lastused" />
+          <ScalarProperty Name="amtused" ColumnName="amtused" />
+          <ScalarProperty Name="amtusedytd" ColumnName="amtusedytd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCountries">
+      <EntityTypeMapping TypeName="PISchologistDBModel.tblCountry">
+        <MappingFragment StoreEntitySet="tblCountry">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="country" ColumnName="country" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblRoles">
+      <EntityTypeMapping TypeName="PISchologistDBModel.tblRole">
+        <MappingFragment StoreEntitySet="tblRole">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="isactive" ColumnName="isactive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUsers">
+      <EntityTypeMapping TypeName="PISchologistDBModel.tblUser">
+        <MappingFragment StoreEntitySet="tblUser">
+          <ScalarProperty Name="PI_id" ColumnName="PI_id" />
+          <ScalarProperty Name="PI_fname" ColumnName="PI_fname" />
+          <ScalarProperty Name="PI_lname" ColumnName="PI_lname" />
+          <ScalarProperty Name="PI_email" ColumnName="PI_email" />
+          <ScalarProperty Name="PI_password" ColumnName="PI_password" />
+          <ScalarProperty Name="PI_phone_number" ColumnName="PI_phone_number" />
+          <ScalarProperty Name="PI_created_date" ColumnName="PI_created_date" />
+          <ScalarProperty Name="PI_last_access_dt" ColumnName="PI_last_access_dt" />
+          <ScalarProperty Name="PI_zoom_user_id" ColumnName="PI_zoom_user_id" />
+          <ScalarProperty Name="PI_IsLoggedIn" ColumnName="PI_IsLoggedIn" />
+          <ScalarProperty Name="PI_timezone" ColumnName="PI_timezone" />
+          <ScalarProperty Name="PI_Isadmin" ColumnName="PI_Isadmin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblWebinarDetails">
+      <EntityTypeMapping TypeName="PISchologistDBModel.tblWebinarDetail">
+        <MappingFragment StoreEntitySet="tblWebinarDetail">
+          <ScalarProperty Name="WebinarId" ColumnName="WebinarId" />
+          <ScalarProperty Name="WebinaruserId" ColumnName="WebinaruserId" />
+          <ScalarProperty Name="Webinar_starturl" ColumnName="Webinar_starturl" />
+          <ScalarProperty Name="Webinar_joinurl" ColumnName="Webinar_joinurl" />
+          <ScalarProperty Name="Webinar_starttime" ColumnName="Webinar_starttime" />
+          <ScalarProperty Name="Webinar_endtime" ColumnName="Webinar_endtime" />
+          <ScalarProperty Name="Webinar_duration" ColumnName="Webinar_duration" />
+          <ScalarProperty Name="Webinar_type" ColumnName="Webinar_type" />
+          <ScalarProperty Name="Webinar_timezone" ColumnName="Webinar_timezone" />
+          <ScalarProperty Name="Webinar_meeting_id" ColumnName="Webinar_meeting_id" />
+          <ScalarProperty Name="Webinar_meeting_status" ColumnName="Webinar_meeting_status" />
+          <ScalarProperty Name="Webinar_host_id" ColumnName="Webinar_host_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblZoomInstallers">
+      <EntityTypeMapping TypeName="PISchologistDBModel.tblZoomInstaller">
+        <MappingFragment StoreEntitySet="tblZoomInstaller">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IszoomInstall" ColumnName="IszoomInstall" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

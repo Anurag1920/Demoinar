@@ -1,0 +1,12 @@
+E:\Webinar.Web\Webinar.ZoomAPI\bin\Release\Webinar.ZoomAPI.dll.config
+E:\Webinar.Web\Webinar.ZoomAPI\bin\Release\Webinar.ZoomAPI.dll
+E:\Webinar.Web\Webinar.ZoomAPI\bin\Release\Webinar.ZoomAPI.pdb
+E:\Webinar.Web\Webinar.ZoomAPI\obj\Release\Webinar.ZoomAPI.csprojResolveAssemblyReference.cache
+E:\Webinar.Web\Webinar.ZoomAPI\obj\Release\Webinar.ZoomAPI.dll
+E:\Webinar.Web\Webinar.ZoomAPI\obj\Release\Webinar.ZoomAPI.pdb
+E:\PI\code\Webinar.Web\Webinar.ZoomAPI\bin\Release\Webinar.ZoomAPI.dll.config
+E:\PI\code\Webinar.Web\Webinar.ZoomAPI\bin\Release\Webinar.ZoomAPI.dll
+E:\PI\code\Webinar.Web\Webinar.ZoomAPI\bin\Release\Webinar.ZoomAPI.pdb
+E:\PI\code\Webinar.Web\Webinar.ZoomAPI\obj\Release\Webinar.ZoomAPI.csprojResolveAssemblyReference.cache
+E:\PI\code\Webinar.Web\Webinar.ZoomAPI\obj\Release\Webinar.ZoomAPI.dll
+E:\PI\code\Webinar.Web\Webinar.ZoomAPI\obj\Release\Webinar.ZoomAPI.pdb

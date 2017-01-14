@@ -1,0 +1,88 @@
+﻿@model Webinar.DAL.Model.WebinarVM
+
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+
+@*@if (Model != null)
+{
+    <input type="hidden" id="host_webinar_id" value="@Model.Webinar_meeting_id" />
+    <input type="hidden" id="host_zoom_id" value="@Model.Webinar_host_id" />*@
+
+    @*<div style="width: 75%; height: auto; margin: 30px auto; display: none">
+        <iframe id="Iframe" src="@Model.Webinar_starturl" width="100%" height="0px" frameborder="0" style="display: none;" runat="server"></iframe>
+    </div>*@
+
+    <div style="width: 75%; height: auto; margin: 30px auto;">
+        <br />
+        <br />
+        <br />
+        <center><h3> Your webinar session is starting...</h3></center>
+        <br />
+        <br />
+        <center><h3>Once it has completed, you will be returned to the Dashboard</h3></center>
+        <br />
+        <br />
+    </div>
+
+@*
+}
+else
+{
+    <br />
+    <br />
+    <br />
+    <center><h4> Your video chat session has been Paused.</h4></center>
+    <br />
+    <br />
+    <center><h4>For further Query Please contact to physics simplified support team.Thanks</h4></center>
+    <br />
+    <br />
+}*@
+
+<script>
+    var interval = null;
+    $(document).ready(function () {
+        interval = setInterval("GetWebinarStatusResponse()", 5000);
+    });
+
+    function GetWebinarStatusResponse() {
+
+        //get last value
+        var host_webinar_id = $("#host_webinar_id").val();
+        var host_zoom_id = $("#host_zoom_id").val();
+        $.ajax({
+            url: "/Home/GetZoomWebinarStatus/",
+            type: 'POST',
+            data: { host_webinar_id: host_webinar_id, host_zoom_id: host_zoom_id},
+            contenType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            success: function (response) {
+                if (response.status == 2) {
+                    window.location = "/Home/DashBoard";
+                    clearInterval(interval);
+                }
+            }
+        });
+    }
+
+    function BindItemAmountList() {
+
+        $('#ItemAmountList').html("");
+
+        $.ajax({
+            url: "/Home/GetItemAmount",
+            type: "Get",
+            success: function (data) {
+                var optionhtml1 = '<option value="' +
+                 0 + '">' + "--Select an amount--" + '</option>';
+                $('#ItemAmountList').append(optionhtml1);
+
+                for (var i = 0; i < data.length; i++) {
+                    var CardList = new Option("$" + data[i].itemprice, data[i].itemid);
+                    $('#ItemAmountList').append(CardList);
+                }
+            }
+        });
+    }
+
+
+</script>

@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Result";
+    Layout = "~/Views/Shared/_OnlineTestLayout";
+}
+
+<h2>Result</h2>
+
+<div class="col-md-12"><a href="/Home/Test">New Test</a></div>
+<div ng-app="OnlineTest" ng-controller="ResultCtrl">
+    <table>
+        <tr>
+            <th>Test No.</th>
+            <th>Total Question</th>
+            <th>Attempted</th>
+            <th>Correct</th>
+        </tr>
+        <tr ng-repeat="item in Model">
+            <td>{{$index +1}}</td>
+            <td>{{item.TotalQuestion}}</td>
+            <td>{{item.Attempted}}</td>
+            <td>{{item.Correct}}</td>
+        </tr>
+    </table>
+    </div>
+    <script src="~/Scripts/Result/ResultCtrl.js"></script>

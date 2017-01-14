@@ -1,0 +1,103 @@
+﻿@model Webinar.Web.Models.LoginViewModel
+
+@{
+    Layout = null;
+    ViewBag.Title = ":: Login ::";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+  
+    <link href="~/Style/AdminStyle.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        .field-validation-error {
+            background: none repeat scroll 0 0 #fbe3e4 !important;
+            border: 2px solid #fbc2c4 !important;
+            color: #8a1f11 !important;
+            margin-bottom: 1em !important;
+            margin-right: 2px !important;
+            margin-top: 3px !important;
+            padding: 0.8em !important;
+            position: relative !important;
+        }
+
+        .field-validation-error {
+            padding: 0.8em;
+            margin-bottom: 1em;
+            border: 2px solid #ddd;
+            margin-right: 2px;
+        }
+
+        .field-validation-error {
+            background: #fbe3e4;
+            color: #8a1f11;
+            border-color: #fbc2c4;
+            width: 93%;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="upSignIn">
+
+        <section class="top-header height_592">
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <article class="width400" id="login-form">
+                    <p class="align-center">
+                       
+                    </p>
+                    <section class="inner-heading marginB-20">
+
+                        <span class="grayscale-color align-center font-16">Enter username and password to Login</span>
+                    </section>
+                    @Html.ValidationSummary(true, "", new { @class = "field-validation-error" })
+                    @Html.LabelFor(m => m.UserName)
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "text-box-d" })
+                    @Html.ValidationMessageFor(m => m.UserName)
+                    <br>
+                    @Html.LabelFor(m => m.Password)
+                    @Html.PasswordFor(m => m.Password, new { @class = "text-box-d" })
+                    @Html.ValidationMessageFor(m => m.Password)
+
+                    <article class="width390 fl marginB-20">
+                        <section class="width-50 fl">
+
+
+                            <span class="abvcc">@Html.CheckBoxFor(m => m.RememberMe)</span>
+                            RememberMe
+                        </section>
+
+                    </article>
+                    <article class="width300 fl marginB-20">
+                        <section class="form-btn fl">
+
+                              <input type="submit" value="Log in" class="admin-button" />
+                        </section>
+                    </article>
+
+                    <div style="clear:both;"></div>
+                </article>
+            }
+        </section>
+
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+   
+</body>
+</html>
+
+

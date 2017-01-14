@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="661a7df54f204202b1303248c98041be" Name="Diagram1" >
+        <EntityTypeShape EntityType="OnlineTestModel.AspNetRole" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="OnlineTestModel.AspNetUserClaim" Width="1.5" PointX="3" PointY="3.375" />
+        <EntityTypeShape EntityType="OnlineTestModel.AspNetUserLogin" Width="1.5" PointX="3" PointY="8.875" />
+        <EntityTypeShape EntityType="OnlineTestModel.AspNetUserRole" Width="1.5" PointX="6" PointY="4.625" />
+        <EntityTypeShape EntityType="OnlineTestModel.AspNetUser" Width="1.5" PointX="0.75" PointY="4.25" />
+        <EntityTypeShape EntityType="OnlineTestModel.Category" Width="1.5" PointX="5.75" PointY="7.625" />
+        <AssociationConnector Association="OnlineTestModel.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" />
+        <AssociationConnector Association="OnlineTestModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" />
+        <AssociationConnector Association="OnlineTestModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="OnlineTestModel.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" />
+        <EntityTypeShape EntityType="OnlineTestModel.Answer" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="OnlineTestModel.Result" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="OnlineTestModel.Question" Width="1.5" PointX="8.375" PointY="7.75" />
+        <EntityTypeShape EntityType="OnlineTestModel.Test" Width="1.5" PointX="8.375" PointY="4.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
